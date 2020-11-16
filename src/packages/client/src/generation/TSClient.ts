@@ -1035,7 +1035,7 @@ ${this.argsTypes.map(TS).join('\n')}
 }
 
 function getMethodJSDocBody(
-  action: DMMF.ModelAction,
+  action: DMMF.ModelAction | 'findOne',
   mapping: DMMF.ModelMapping,
   model: DMMF.Model,
 ): string {
@@ -1222,6 +1222,9 @@ export class ModelDelegate implements Generatable {
       return ''
     }
     const model = this.dmmf.modelMap[name]
+
+
+    // TODO: handle findOne
 
     const actions = Object.entries(mapping).filter(
       ([key, value]) =>

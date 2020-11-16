@@ -474,7 +474,7 @@ export function getPrismaClient(config: GetPrismaClientOptions): any {
       delete this._disconnectionPromise
       delete this._getConfigPromise
     }
-    
+
     /**
      * Disconnect from the database
      */
@@ -973,6 +973,9 @@ new PrismaClient({
           dataPath,
           modelName,
         }) => {
+          if (actionName === 'findOne') {
+            console.warn(`${chalk.yellow('warn(prisma) ')} findOne is deprecated. Please use findUnique instead.`)
+          }
           dataPath = dataPath ?? []
 
           const clientMethod = `${lowerCaseModel}.${actionName}`
@@ -1085,6 +1088,11 @@ new PrismaClient({
           model: true,
           plural: true,
           aggregate: true,
+        }
+
+        const newMapping = {
+          ...mapping,
+          findOne: mapping.findUnique
         }
 
         const delegate: any = Object.entries(mapping).reduce(
