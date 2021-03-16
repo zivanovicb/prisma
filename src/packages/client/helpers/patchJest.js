@@ -11,7 +11,11 @@ const patchFilePath = path.resolve(
 )
 const lines = fs.readFileSync(patchFilePath, 'utf-8').split('\n')
 
+// This is required for NAPI client tests
 lines[78] = '  globalObject.process = process'
 
 const result = lines.join('\n')
+
 fs.writeFileSync(patchFilePath, result)
+
+console.log(`Jest "process" patched applied to ${patchFilePath}`)
