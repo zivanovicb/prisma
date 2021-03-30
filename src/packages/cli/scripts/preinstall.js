@@ -169,45 +169,6 @@ Then install ${white('prisma')} to continue using ${b('Prisma 2.0')}:
 
 Learn more here: https://pris.ly/preview025
 `
-  } else {
-    message = `
-You seem to have a global installation of Prisma 1 package ${white('prisma')}. 
-As Prisma 2 uses the same executable ${white(
-      'prisma',
-    )}, this would lead to a conflict.
-
-To keep using Prisma 1, install the new package ${white(
-      'prisma1',
-    )} that we created.
-It exposes the executable ${white('prisma1')}.
-  
-   # Uninstall old Prisma 1 CLI
-   ${white(
-     installedGlobally.pkgManager === 'yarn'
-       ? 'yarn global remove prisma'
-       : 'npm uninstall -g prisma',
-   )}
-
-   # Install new Prisma 1 CLI
-   ${white(
-     installedGlobally.pkgManager === 'yarn'
-       ? 'yarn global add prisma1'
-       : 'npm install -g prisma1',
-   )}
-
-   # Use the Prisma 1 CLI
-   ${white('prisma1 --help')}
-
-Then you can install Prisma 2:
-
-   # Install Prisma 2 CLI
-   ${white(`npm install prisma${isDev ? '@dev' : ''} --save-dev`)}
-   
-   # Invoke via npx
-   ${white('npx prisma --help')}
-
-Learn more here: https://pris.ly/prisma1
-`
   }
 
   console.error(
