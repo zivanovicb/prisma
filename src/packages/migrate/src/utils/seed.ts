@@ -102,10 +102,7 @@ runSeed()
 // @ts-ignore
 declare const require: any
 
-${script}
-
-export {}
-`
+${script}`
   }
 
   return script
