@@ -4,7 +4,6 @@ export {
   PrismaClientRustPanicError,
   PrismaClientUnknownRequestError,
 } from './errors'
-export { getInternalDatamodelJson } from './getInternalDatamodelJson'
 export { LibraryEngine } from './LibraryEngine'
 export { BinaryEngine } from './BinaryEngine'
 export { Engine } from './Engine'
