@@ -33,9 +33,9 @@ function setup(root: string, opt: Options = {}) {
 
     // register the default life-cycle methods if they exist
     opt.afterAll ? afterAll(...opt.afterAll) : void 0
-    opt.afterEach ? afterAll(...opt.afterEach) : void 0
-    opt.beforeAll ? afterAll(...opt.beforeAll) : void 0
-    opt.beforeEach ? afterAll(...opt.beforeEach) : void 0
+    opt.afterEach ? afterEach(...opt.afterEach) : void 0
+    opt.beforeAll ? beforeAll(...opt.beforeAll) : void 0
+    opt.beforeEach ? beforeEach(...opt.beforeEach) : void 0
 
     // execute the tests suite files inside of the describe
     describe(testSuiteDesc, () => void require(testSuitePath))
