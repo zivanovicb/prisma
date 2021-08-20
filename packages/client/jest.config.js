@@ -17,6 +17,7 @@ module.exports = {
     '<rootDir>/src/__tests__/integration/happy/exhaustive-schema/generated-dmmf.ts',
     '__helpers__/',
     'node_modules/',
+    '.*?.suite.ts',
     'index.ts',
     'index.d.ts',
     'index.js',

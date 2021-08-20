@@ -1,18 +1,17 @@
 datasource db {
   provider = "mysql"
-  url      = env("TEST_MYSQL_URI")
+  url      = env("MYSQL_TEST_URI")
 }
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["filterJson"]
+  // [INSERT_PREVIEW_FLAGS]
 }
 
 model User {
   id       String  @id @default(uuid())
   email    String  @unique
   name     String?
-  json     Json
   posts    Post[]
 }
 
@@ -22,3 +21,5 @@ model Post {
   user   User   @relation(fields: [userId], references: [id])
   userId String
 }
+
+// [INSERT_MODELS]
